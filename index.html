@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HCS | Home</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts (Playfair Display for headings, Roboto for body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    :root {
+      --dark-bg: #1a1a1a;
+      --gold: #cba135;
+      --light-bg: #f9f9f9;
+      --primary-font: 'Playfair Display', serif;
+      --secondary-font: 'Roboto', sans-serif;
+    }
+    body {
+      font-family: var(--secondary-font);
+      color: #333;
+      background-color: #fff;
+      scroll-behavior: smooth;
+    }
+    /* Navbar */
+    .navbar {
+      background: var(--dark-bg);
+    }
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+    .navbar-brand {
+      font-family: var(--primary-font);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--gold) !important;
+    }
+    /* Hero Section */
+    header {
+      position: relative;
+      height: 100vh;
+      background: url('assets/images/hero.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    header .container {
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-family: var(--primary-font);
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    header p.lead {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    header a.btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 0;
+      background-color: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+    header a.btn:hover {
+      background-color: #ad8a2c;
+      border-color: #ad8a2c;
+    }
+    /* Section Titles */
+    section h2 {
+      font-family: var(--primary-font);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-bg);
+      text-align: center;
+    }
+    /* About Preview Section */
+    #home-about {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+    #home-about p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    #home-about .btn {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+    #home-about .btn:hover {
+      background-color: var(--gold);
+      color: #fff;
+    }
+    /* Services Preview Section */
+    #home-services {
+      padding: 60px 0;
+      background-color: var(--light-bg);
+      text-align: center;
+    }
+    #home-services p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    #home-services .btn {
+      color: var(--dark-bg);
+      border-color: var(--dark-bg);
+    }
+    #home-services .btn:hover {
+      background-color: var(--dark-bg);
+      color: #fff;
+    }
+    /* Contact Section */
+    #contact {
+      padding: 60px 0;
+      background: var(--light-bg);
+    }
+    #contact .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    #contact .contact-info {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    #contact .contact-info a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    #contact .contact-info a:hover {
+      text-decoration: underline;
+    }
+    /* Social Media */
+    .social-media {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .social-media a {
+      display: inline-block;
+      margin: 0 10px;
+      transition: transform 0.3s;
+    }
+    .social-media a:hover {
+      transform: scale(1.1);
+    }
+    .social-media img {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+    }
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-form .form-control {
+      border-radius: 0;
+      border: 2px solid var(--gold);
+    }
+    .contact-form .btn {
+      background-color: var(--gold);
+      border: none;
+      border-radius: 0;
+      font-size: 1.1rem;
+    }
+    .contact-form .btn:hover {
+      background-color: #ad8a2c;
+    }
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: #ccc;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #ccc;
+    }
+    footer a:hover {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.jpg" alt="HCS Logo" width="40" class="me-2">
+        HCS
+        <small style="font-size: 0.65rem;">Haricane Consultancy Services</small>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" 
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultation.html">Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="d-flex align-items-center justify-content-center text-center">
+    <div class="container">
+      <h1>WELCOME TO HARICANE CONSULTANCY SERVICES</h1>
+      <p class="lead">Your one-stop solution for website building and digital marketing.</p>
+      <a href="#contact" class="btn btn-lg mt-3">Get in Touch</a>
+    </div>
+  </header>
+
+  <!-- About Preview Section -->
+  <section id="home-about" class="text-center">
+    <div class="container">
+      <h2>Who We Are</h2>
+      <p>
+        At HCS, we turn ideas into digital success. Our dedicated team crafts tailored strategies to elevate your brand and deliver tangible results.
+      </p>
+      <a href="about.html" class="btn btn-outline-primary">Learn More About Us</a>
+    </div>
+  </section>
+
+  <!-- Services Preview Section -->
+  <section id="home-services" class="text-center">
+    <div class="container">
+      <h2>Our Services</h2>
+      <p>
+        From SEO and PPC to social media and web design, we cover all your digital needs under one roof.
+      </p>
+      <a href="services.html" class="btn btn-outline-dark">View Services</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get in Touch with Us</h2>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:haricaneconsultancy@gmail.com">haricaneconsultancy@gmail.com</a></p>
+        <p>
+          Phone (India): 
+          <a href="tel:+917050745124">7050745124</a> | 
+          <a href="tel:+919234576240">9234576240</a>
+        </p>
+      </div>
+      <!-- Social Media Links -->
+      <div class="social-media mb-4">
+        <a href="https://www.instagram.com/haricane_consultancy" target="_blank" title="Instagram">
+          <img src="assets/images/insta.jpeg" alt="Instagram Logo" />
+        </a>
+        <a href="https://www.facebook.com/haricane_consultancy" target="_blank" title="Facebook">
+          <img src="assets/images/facebook.avif" alt="Facebook Logo" />
+        </a>
+        <a href="https://x.com/haricane_consultancy" target="_blank" title="x">
+          <img src="assets/images/x.avif" alt="Twitter Logo" />
+        </a>
+        <a href="https://www.linkedin.com/company/haricane_consultancy" target="_blank" title="LinkedIn">
+          <img src="assets/images/linkedin.avif" alt="LinkedIn Logo" />
+        </a>
+      </div>
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="mb-3">
+            <label for="contactName" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="contactName" placeholder="Enter your name" required />
+          </div>
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email" required />
+          </div>
+          <div class="mb-3">
+            <label for="contactMessage" class="form-label">Your Message</label>
+            <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-lg w-100">Send Message</button>
+        </form>
+      </div>
+      <!-- Confirmation Message (hidden initially) -->
+      <div class="alert alert-success mt-4 text-center" id="confirmationMessage" style="display: none;">
+        Thank you! Your message has been sent. We will contact you as soon as possible.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="mb-0">&copy; 2025 HCS. All Rights Reserved.</p>
+      <p class="mb-0">
+        <a href="privacy.html" class="text-decoration-none me-2">Privacy Policy</a> |
+        <a href="terms.html" class="text-decoration-none ms-2">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript to simulate contact form submission -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simulate sending message via AJAX
+      this.style.display = 'none';
+      document.getElementById('confirmationMessage').style.display = 'block';
+    });
+  </script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HCS | About Us</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    :root {
+      --dark-bg: #1a1a1a;
+      --gold: #cba135;
+      --royal-blue: #002147;
+      --warm-bg: #fff8e1;
+      --light-bg: #f9f9f9;
+      --primary-font: 'Playfair Display', serif;
+      --secondary-font: 'Roboto', sans-serif;
+    }
+    body {
+      font-family: var(--secondary-font);
+      color: #333;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    /* Navbar */
+    .navbar {
+      background: var(--dark-bg);
+    }
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .navbar-brand {
+      font-family: var(--primary-font);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--gold) !important;
+    }
+    /* Page Header */
+    .page-header {
+      background: var(--royal-blue);
+      color: #fff;
+      text-align: center;
+      padding: 40px 0;
+      position: relative;
+    }
+    .page-header img {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: var(--primary-font);
+      font-size: 2.75rem;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+    /* Section Titles */
+    .section-title {
+      font-family: var(--primary-font);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--royal-blue);
+      text-align: center;
+    }
+    /* Company Overview & Timeline */
+    .overview {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .timeline {
+      margin: 30px 0;
+    }
+    .timeline li {
+      margin-bottom: 15px;
+    }
+    .timeline li span {
+      font-weight: 700;
+      color: var(--gold);
+    }
+    /* Leadership */
+    .leadership img {
+      max-width: 150px;
+    }
+    .leadership h3 {
+      font-family: var(--primary-font);
+      color: var(--royal-blue);
+      margin-top: 10px;
+    }
+    .leadership p {
+      font-size: 1rem;
+      color: #555;
+    }
+    /* Key Projects Section */
+    .project-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #fff;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+    .project-card img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .project-card .card-body {
+      padding: 1rem;
+    }
+    .project-card .card-title {
+      font-family: var(--primary-font);
+      color: var(--royal-blue);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-card .card-text {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    /* Regions & Clients */
+    .regions p {
+      font-size: 1.1rem;
+    }
+    .regions strong {
+      color: var(--gold);
+    }
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: #ccc;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #ccc;
+    }
+    footer a:hover {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.jpg" alt="HCS Logo" width="40" class="me-2" />
+        HCS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultation.html">Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <img src="assets/images/logo.jpg" alt="HCS Logo" />
+      <h1>About Haricane Consultancy Services</h1>
+      <p>Innovative Solutions. Trusted Expertise.</p>
+    </div>
+  </header>
+
+  <!-- Company Overview & Timeline Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Our Journey</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="assets/images/About.jpg" alt="About HCS" class="img-fluid rounded mb-4" />
+        </div>
+        <div class="col-md-6">
+          <p class="overview">
+            Haricane Consultancy Services (HCS) was founded in <strong>2020</strong> with a vision to revolutionize digital marketing and web development. Our mission is to provide innovative, customized solutions that drive results for our diverse clientele.
+          </p>
+          <ul class="timeline list-unstyled">
+            <li><span>2020:</span> HCS is founded, setting the benchmark for digital innovation.</li>
+            <li><span>2021:</span> Expanded our services across India and began serving international markets.</li>
+            <li><span>2022:</span> Secured major clients and launched flagship projects.</li>
+            <li><span>2023:</span> Enhanced our technological capabilities and service portfolio.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section id="leadership" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Our Leadership</h2>
+      <div class="row text-center">
+        <!-- Board of Director -->
+        <div class="col-md-4 mb-4">
+          <img src="assets/images/m pandey.jpg" alt="Board of Director" class="img-fluid rounded-circle" style="max-width:150px;">
+          <h3>Mritunjoy Pandey</h3>
+          <p class="fw-bold">Board of Director</p>
+        </div>
+        <!-- CEO -->
+        <div class="col-md-4 mb-4">
+          <img src="assets/images/raghaw.jpeg" alt="CEO H S Raghaw" class="img-fluid rounded-circle" style="max-width:150px;">
+          <h3>H S Raghaw</h3>
+          <p class="fw-bold">Chief Executive Officer</p>
+        </div>
+        <!-- CTO & Key Posts -->
+        <div class="col-md-4 mb-4">
+          <img src="assets/images/skp.jpg.jpeg" alt="CTO S K Pandey" class="img-fluid rounded-circle" style="max-width:150px;">
+          <h3>S K Pandey</h3>
+          <p class="fw-bold">Chief Technology Officer & Other Key Posts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Projects Section -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Key Projects & Clients</h2>
+      <p class="text-center mb-4" style="font-size:1.1rem;">
+        Over the years, we have partnered with a diverse range of clients across various sectors:
+      </p>
+      <div class="row g-4">
+        <!-- Haricane Lifestyle (Clothing Brand) -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/haricanelogo.jpeg" alt="Haricane Lifestyle" />
+            <div class="card-body">
+              <h5 class="card-title">Haricane Lifestyle</h5>
+              <p class="card-text">
+                A premium clothing brand redefining modern style with quality and innovation.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Adaero Tech Pvt. Ltd -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/aderotech.png" alt="Adaero Tech Pvt. Ltd" />
+            <div class="card-body">
+              <h5 class="card-title">Adaero Tech Pvt. Ltd</h5>
+              <p class="card-text">
+                A technology powerhouse providing cutting-edge technical setups and solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- BRAIN (Bharat Research In AI Nextgen) -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/brain.jpg" alt="BRAIN" />
+            <div class="card-body">
+              <h5 class="card-title">BRAIN</h5>
+              <p class="card-text">
+                Pioneering AI research and next-generation solutions across multiple industries.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Le Satrang Cafes (Additional) -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/satrang.jpg" alt="Le Satrang Cafes" />
+            <div class="card-body">
+              <h5 class="card-title">Restaurants & Cafes</h5>
+              <p class="card-text">
+                Serving a multitude of culinary brands with fusion of worlds and hospitality ventures with digital expertise.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regions Section -->
+  <section id="regions" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Our Reach</h2>
+      <p class="text-center" style="font-size:1.1rem;">
+        We proudly operate in <strong>India, Nepal, Bangladesh, Sri Lanka, and Myanmar</strong>, delivering innovative digital solutions to clients across South Asia.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-3">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 HCS. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

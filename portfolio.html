@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HCS | Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    :root {
+      --dark-bg: #1a1a1a;
+      --gold: #cba135;
+      --royal-blue: #002147;
+      --warm-bg: #fff8e1;
+      --light-bg: #f9f9f9;
+      --primary-font: 'Playfair Display', serif;
+      --secondary-font: 'Roboto', sans-serif;
+      --accent-color: #f05454;
+    }
+    body {
+      font-family: var(--secondary-font);
+      background-color: var(--light-bg);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    /* Navbar */
+    .navbar {
+      background: var(--dark-bg);
+    }
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .navbar-brand {
+      font-family: var(--primary-font);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--gold) !important;
+    }
+    /* Page Header */
+    .page-header {
+      background: var(--royal-blue);
+      color: #fff;
+      text-align: center;
+      padding: 40px 0;
+      position: relative;
+    }
+    .page-header img {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: var(--primary-font);
+      font-size: 2.75rem;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+    /* Section Title */
+    .section-title {
+      font-family: var(--primary-font);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--royal-blue);
+      text-align: center;
+    }
+    /* Project Cards */
+    .project-card {
+      border: 2px solid var(--gold);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #fff;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+    .project-card img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .project-card .card-body {
+      padding: 1.25rem;
+    }
+    .project-card .card-title {
+      font-family: var(--primary-font);
+      color: var(--royal-blue);
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .project-card .card-text {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .project-card .btn {
+      background-color: var(--accent-color);
+      border: none;
+      border-radius: 0;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      transition: background-color 0.3s;
+    }
+    .project-card .btn:hover {
+      background-color: var(--gold);
+    }
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: #ccc;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #ccc;
+    }
+    footer a:hover {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.jpg" alt="HCS Logo" width="40" class="me-2" /> HCS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultation.html">Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <img src="assets/images/logo.jpg" alt="HCS Logo" />
+      <h1>Our Portfolio</h1>
+      <p>Explore Our Projects & Clients</p>
+    </div>
+  </header>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Featured Projects & Clients</h2>
+      <p class="text-center mb-4" style="font-size:1.1rem;">
+        Our portfolio spans across diverse industries, showcasing our innovative solutions and trusted expertise.
+      </p>
+      <div class="row g-4">
+        <!-- Haricane Lifestyle (Clothing Brand) -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/haricanelogo.jpeg" alt="Haricane Lifestyle">
+            <div class="card-body">
+              <h5 class="card-title">Haricane Lifestyle</h5>
+              <p class="card-text">
+                A premium clothing brand redefining modern style through quality and innovation.
+              </p>
+              <a href="contact.html" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Adaero Tech Pvt. Ltd -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/aderotech.png" alt="Adaero Tech Pvt. Ltd">
+            <div class="card-body">
+              <h5 class="card-title">Adaero Tech Pvt. Ltd</h5>
+              <p class="card-text">
+                A technology powerhouse offering cutting-edge technical setups and digital solutions.
+              </p>
+              <a href="contact.html" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <!-- BRAIN (Bharat Research In AI Nextgen) -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/brain.jpg" alt="BRAIN">
+            <div class="card-body">
+              <h5 class="card-title">BRAIN</h5>
+              <p class="card-text">
+                Pioneering AI research and next-generation solutions that transform industries.
+              </p>
+              <a href="contact.html" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Restaurants & Cafes -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/satrang.jpg" alt="Restaurants & Cafes">
+            <div class="card-body">
+              <h5 class="card-title">Restaurants & Cafes</h5>
+              <p class="card-text">
+                Empowering culinary brands with digital expertise to enhance customer engagement.
+              </p>
+              <a href="contact.html" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Additional Projects (if needed) -->
+        <!-- Example: A creative digital campaign project -->
+        <div class="col-md-4">
+          <div class="card project-card h-100">
+            <img src="assets/images/handsome-latin-businessman-examining-sales-data-while-working-home_662251-890.jpg" alt="Digital Campaign">
+            <div class="card-body">
+              <h5 class="card-title">Digital Campaigns</h5>
+              <p class="card-text">
+                Innovative digital campaigns that drive engagement and conversions.
+              </p>
+              <a href="contact.html" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-3">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 HCS. All Rights Reserved.</p>
+      <p class="mb-0">
+        <a href="privacy.html" class="text-decoration-none me-2">Privacy Policy</a> |
+        <a href="terms.html" class="text-decoration-none ms-2">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

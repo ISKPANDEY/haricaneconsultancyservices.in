@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HCS | Pricing</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    :root {
+      --dark-bg: #1a1a1a;
+      --gold: #cba135;
+      --light-bg: #f9f9f9;
+      --primary-font: 'Playfair Display', serif;
+      --secondary-font: 'Roboto', sans-serif;
+    }
+    body {
+      font-family: var(--secondary-font);
+      background-color: #fff;
+      color: #333;
+    }
+    /* Navbar styling */
+    .navbar {
+      background: var(--dark-bg);
+    }
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .navbar-brand {
+      font-family: var(--primary-font);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--gold) !important;
+    }
+    /* Pricing Section */
+    #pricing {
+      padding: 60px 0;
+    }
+    #pricing h2 {
+      font-family: var(--primary-font);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-bg);
+    }
+    #pricing p.section-subtitle {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .pricing-card {
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+      background-color: #fff;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+    .pricing-card .card-header {
+      background-color: var(--gold);
+      color: #fff;
+      font-family: var(--primary-font);
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 0.75rem 1rem;
+    }
+    .pricing-card img.card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .pricing-card .card-body {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .pricing-card .price {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark-bg);
+    }
+    .pricing-card .original-price {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 1rem;
+    }
+    .pricing-card .offer-price {
+      color: var(--gold);
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .pricing-card .card-text {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card .btn {
+      background-color: var(--gold);
+      border: none;
+      border-radius: 0;
+    }
+    .pricing-card .btn:hover {
+      background-color: #ad8a2c;
+    }
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: #ccc;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #ccc;
+    }
+    footer a:hover {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.jpg" alt="HCS Logo" width="40" class="me-2" /> HCS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultation.html">Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Pricing Section -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="text-center">Our Pricing & Offers</h2>
+      <p class="section-subtitle text-center">
+        We offer comprehensive digital solutions tailored to your business needs. Check out our service packages below with exclusive discounts!
+      </p>
+      <div class="row g-4">
+        <!-- SEO Service -->
+        <div class="col-md-4">
+          <div class="card pricing-card h-100">
+            <img src="assets/images/seo.jpg" class="card-img-top" alt="SEO Service" />
+            <div class="card-header">SEO</div>
+            <div class="card-body">
+              <p class="price"><span class="original-price">₹9999</span> <br/><span class="offer-price">₹5999</span></p>
+              <p class="card-text">
+                Optimize your website to rank higher on search engines and drive organic traffic.
+              </p>
+              <a href="booking.html?service=SEO" class="btn btn-lg">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <!-- PPC Service -->
+        <div class="col-md-4">
+          <div class="card pricing-card h-100">
+            <img src="assets/images/ppc.jpg" class="card-img-top" alt="PPC Service" />
+            <div class="card-header">PPC</div>
+            <div class="card-body">
+              <p class="price"><span class="original-price">₹11999</span> <br/><span class="offer-price">₹5999</span></p>
+              <p class="card-text">
+                Launch targeted ad campaigns that deliver immediate traffic and high ROI.
+              </p>
+              <a href="booking.html?service=PPC" class="btn btn-lg">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <!-- Social Media Marketing -->
+        <div class="col-md-4">
+          <div class="card pricing-card h-100">
+            <img src="assets/images/SOCIAL MEDIA.jpg" class="card-img-top" alt="Social Media Marketing" />
+            <div class="card-header">Social Media Marketing</div>
+            <div class="card-body">
+              <p class="price"><span class="original-price">₹10999</span> <br/><span class="offer-price">₹5499</span></p>
+              <p class="card-text">
+                Enhance your brand's presence across major platforms with creative strategies.
+              </p>
+              <a href="booking.html?service=Social%20Media" class="btn btn-lg">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <!-- Web Development & Design -->
+        <div class="col-md-4">
+          <div class="card pricing-card h-100">
+            <img src="assets/images/WEB DESIGN.jpg" class="card-img-top" alt="Web Development & Design" />
+            <div class="card-header">Web Dev & Design</div>
+            <div class="card-body">
+              <p class="price"><span class="original-price">₹12999</span> <br/><span class="offer-price">₹9999</span></p>
+              <p class="card-text">
+                Build responsive, modern websites that captivate your audience and drive conversions.
+              </p>
+              <a href="booking.html?service=Web%20Dev%20%26%20Design" class="btn btn-lg">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <!-- Analytics & Reporting -->
+        <div class="col-md-4">
+          <div class="card pricing-card h-100">
+            <img src="assets/images/analytics.jpg" class="card-img-top" alt="Analytics & Reporting" />
+            <div class="card-header">Analytics & Reporting</div>
+            <div class="card-body">
+              <p class="price"><span class="original-price">₹8999</span> <br/><span class="offer-price">₹6999</span></p>
+              <p class="card-text">
+                Gain valuable insights with our comprehensive analytics to fine-tune your strategies.
+              </p>
+              <a href="booking.html?service=Analytics%20%26%20Reporting" class="btn btn-lg">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <!-- Content Marketing -->
+        <div class="col-md-4">
+          <div class="card pricing-card h-100">
+            <img src="assets/images/content-marketing.jpg" class="card-img-top" alt="Content Marketing" />
+            <div class="card-header">Content Marketing</div>
+            <div class="card-body">
+              <p class="price"><span class="original-price">₹9999</span> <br/><span class="offer-price">₹5999</span></p>
+              <p class="card-text">
+                Engage your audience with compelling content that builds trust and drives conversions.
+              </p>
+              <a href="booking.html?service=Content%20Marketing" class="btn btn-lg">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HCS. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

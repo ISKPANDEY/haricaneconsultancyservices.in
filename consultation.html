@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HCS | Free Consultation</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    :root {
+      --dark-bg: #1a1a1a;
+      --gold: #cba135;
+      --royal-blue: #002147;
+      --accent: #f05454;
+      --light-bg: #f9f9f9;
+      --header-gradient: linear-gradient(135deg, #002147, #004080);
+      --primary-font: 'Playfair Display', serif;
+      --secondary-font: 'Roboto', sans-serif;
+    }
+    body {
+      font-family: var(--secondary-font);
+      background-color: var(--light-bg);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    /* Navbar */
+    .navbar {
+      background: var(--dark-bg);
+    }
+    .navbar-brand,
+    .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .navbar-brand {
+      font-family: var(--primary-font);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--gold) !important;
+    }
+    /* Page Header */
+    .page-header {
+      background: var(--header-gradient);
+      color: #fff;
+      text-align: center;
+      padding: 60px 0;
+      position: relative;
+    }
+    .page-header img {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: var(--primary-font);
+      font-size: 2.75rem;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+    /* Consultation Section */
+    #consultation {
+      padding: 60px 0;
+    }
+    #consultation h2 {
+      font-family: var(--primary-font);
+      font-size: 2.5rem;
+      color: var(--royal-blue);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    #consultation p.subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .consultation-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .consultation-form .form-control {
+      border-radius: 0;
+      border: 2px solid var(--gold);
+    }
+    .consultation-form .btn {
+      background-color: var(--gold);
+      border: none;
+      border-radius: 0;
+      font-size: 1.1rem;
+      padding: 0.75rem 1.5rem;
+      transition: background-color 0.3s;
+    }
+    .consultation-form .btn:hover {
+      background-color: #ad8a2c;
+    }
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: #ccc;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #ccc;
+    }
+    footer a:hover {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/logo.jpg" alt="HCS Logo" width="40" class="me-2" /> HCS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link active" href="consultation.html">Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <img src="assets/images/logo.jpg" alt="HCS Logo" />
+      <h1>Free Consultation</h1>
+      <p>Start Your Digital Journey with Expert Guidance</p>
+    </div>
+  </header>
+
+  <!-- Consultation Form Section -->
+  <section id="consultation">
+    <div class="container">
+      <h2 class="text-center">Get Your Free Consultation</h2>
+      <p class="subtitle text-center">
+        Fill out the form below for a free, no-obligation consultation. Our experts are ready to assist you and guide you through our comprehensive digital solutions.
+      </p>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="consultation-form">
+            <form id="consultationForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Your Phone Number">
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" rows="5" class="form-control" placeholder="Tell us about your project or requirements"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
+            </form>
+            <!-- Confirmation Message (hidden initially) -->
+            <div class="alert alert-success mt-4 text-center" id="confirmationMessage" style="display: none;">
+              Thank you! Your consultation request has been received. We will contact you shortly.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 text-center" style="font-size: 1.1rem;">
+        <p>If you have any further questions or need immediate assistance, please feel free to call us during Indian business hours at <strong>7050745124</strong> or <strong>9234576240</strong>, or email us at <a href="mailto:haricaneconsultancy@gmail.com" style="color: var(--royal-blue);">haricaneconsultancy@gmail.com</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 HCS. All Rights Reserved.</p>
+      <p>
+        <a href="privacy.html" class="text-decoration-none me-2">Privacy Policy</a> |
+        <a href="terms.html" class="text-decoration-none ms-2">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript to simulate form submission -->
+  <script>
+    document.getElementById('consultationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simulate sending the form data (replace with AJAX in production)
+      this.style.display = 'none';
+      document.getElementById('confirmationMessage').style.display = 'block';
+    });
+  </script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
