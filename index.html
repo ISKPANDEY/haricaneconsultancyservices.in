@@ -288,24 +288,25 @@
           <img src="/images/linkedin.avif" alt="LinkedIn Logo" />
         </a>
       </div>
+      
       <!-- Contact Form -->
-      <div class="contact-form">
-        <form id="contactForm">
-          <div class="mb-3">
-            <label for="contactName" class="form-label">Your Name</label>
-            <input type="text" class="form-control" id="contactName" placeholder="Enter your name" required />
-          </div>
-          <div class="mb-3">
-            <label for="contactEmail" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email" required />
-          </div>
-          <div class="mb-3">
-            <label for="contactMessage" class="form-label">Your Message</label>
-            <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can we help you?" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-lg w-100">Send Message</button>
-        </form>
-      </div>
+<div class="contact-form">
+  <form action="https://formspree.io/f/myzkrjoe" method="POST">
+    <div class="mb-3">
+      <label for="contactName" class="form-label">Your Name</label>
+      <input type="text" class="form-control" id="contactName" name="name" placeholder="Enter your name" required />
+    </div>
+    <div class="mb-3">
+      <label for="contactEmail" class="form-label">Email Address</label>
+      <input type="email" class="form-control" id="contactEmail" name="email" placeholder="Enter your email" required />
+    </div>
+    <div class="mb-3">
+      <label for="contactMessage" class="form-label">Your Message</label>
+      <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-lg w-100">Send Message</button>
+  </form>
+</div>
       <!-- Confirmation Message (hidden initially) -->
       <div class="alert alert-success mt-4 text-center" id="confirmationMessage" style="display: none;">
         Thank you! Your message has been sent. We will contact you as soon as possible.
