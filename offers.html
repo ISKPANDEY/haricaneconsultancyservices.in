@@ -8,8 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
   <style>
     :root {
       --dark-bg: #1a1a1a;
@@ -37,26 +35,52 @@
       font-size: 1.5rem;
       letter-spacing: 1px;
     }
+    @media (max-width: 576px) {
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+    }
     .navbar-nav .nav-link:hover {
       color: var(--gold) !important;
     }
+    @media (max-width: 991px) {
+      .navbar-nav .nav-item {
+        padding: 0.25rem 0;
+      }
+    }
     /* Offers Section */
     #offers {
-      padding: 60px 0;
+      padding: 40px 0;
+    }
+    @media (min-width: 768px) {
+      #offers {
+        padding: 60px 0;
+      }
     }
     #offers h2 {
       font-family: var(--primary-font);
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
       color: var(--dark-bg);
       text-align: center;
     }
+    @media (min-width: 768px) {
+      #offers h2 {
+        font-size: 2.5rem;
+      }
+    }
     #offers p.section-subtitle {
       max-width: 700px;
-      margin: 0 auto 2rem;
-      font-size: 1.1rem;
+      margin: 0 auto 1.5rem;
+      font-size: 1rem;
       text-align: center;
       color: #555;
+    }
+    @media (min-width: 768px) {
+      #offers p.section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
     }
     /* Offer Cards */
     .offer-card {
@@ -65,50 +89,94 @@
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
       background: #fff;
+      height: 100%;
     }
     .offer-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     }
     .offer-card img {
-      height: 220px;
+      height: 180px;
       width: 100%;
       object-fit: cover;
     }
+    @media (min-width: 768px) {
+      .offer-card img {
+        height: 220px;
+      }
+    }
     .offer-card .card-body {
-      padding: 1.5rem;
+      padding: 1.25rem;
       text-align: center;
+    }
+    @media (min-width: 768px) {
+      .offer-card .card-body {
+        padding: 1.5rem;
+      }
     }
     .offer-card .card-title {
       font-family: var(--primary-font);
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       margin-bottom: 0.75rem;
       color: var(--dark-bg);
     }
+    @media (min-width: 768px) {
+      .offer-card .card-title {
+        font-size: 1.5rem;
+      }
+    }
     .offer-card .card-text {
-      font-size: 1rem;
-      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
       color: #555;
+    }
+    @media (min-width: 768px) {
+      .offer-card .card-text {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+      }
     }
     .offer-card .btn {
       background-color: var(--gold);
       border: none;
       border-radius: 0;
       color: #fff;
-      padding: 0.75rem 1.5rem;
+      padding: 0.5rem 1.25rem;
       transition: background-color 0.3s;
+      font-size: 0.9rem;
+    }
+    @media (min-width: 768px) {
+      .offer-card .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
     }
     .offer-card .btn:hover {
       background-color: #ad8a2c;
+    }
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: #ccc;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: var(--gold);
     }
   </style>
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="/images/logo.jpg" alt="HCS Logo" width="40" class="me-2"> HCS
+        <img src="/images/logo.jpg" alt="HCS Logo" width="40" class="me-2 img-fluid"> HCS
+        <small style="font-size: 0.65rem;" class="d-none d-sm-inline">Haricane Consultancy Services</small>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
         <span class="navbar-toggler-icon"></span>
@@ -132,15 +200,15 @@
   <!-- Offers Section -->
   <section id="offers">
     <div class="container">
-      <h2 class="text-center">Special Offers</h2>
-      <p class="section-subtitle text-center">
+      <h2>Special Offers</h2>
+      <p class="section-subtitle">
         Take advantage of our exclusive digital marketing packages designed to boost your growth.
       </p>
       <div class="row g-4">
         <!-- Offer 1: Free Website Audit -->
-        <div class="col-md-4">
+        <div class="col-sm-6 col-lg-4 mb-4">
           <div class="card offer-card h-100">
-            <img src="/images/audit.jpg" class="card-img-top" alt="Website Audit">
+            <img src="/images/audit.jpg" class="card-img-top img-fluid" alt="Website Audit">
             <div class="card-body">
               <h5 class="card-title">Free Website Audit</h5>
               <p class="card-text">
@@ -151,9 +219,9 @@
           </div>
         </div>
         <!-- Offer 2: 50% Off First Month -->
-        <div class="col-md-4">
+        <div class="col-sm-6 col-lg-4 mb-4">
           <div class="card offer-card h-100">
-            <img src="/images/discount.jpg" class="card-img-top" alt="Discount Offer">
+            <img src="/images/discount.jpg" class="card-img-top img-fluid" alt="Discount Offer">
             <div class="card-body">
               <h5 class="card-title">50% Off First Month</h5>
               <p class="card-text">
@@ -164,9 +232,9 @@
           </div>
         </div>
         <!-- Offer 3: Free 1-Hour Strategy Session -->
-        <div class="col-md-4">
+        <div class="col-sm-6 col-lg-4 mb-4 mx-auto">
           <div class="card offer-card h-100">
-            <img src="/images/stratgy.png" class="card-img-top" alt="Strategy Session">
+            <img src="/images/stratgy.png" class="card-img-top img-fluid" alt="Strategy Session">
             <div class="card-body">
               <h5 class="card-title">Free 1-Hour Strategy Session</h5>
               <p class="card-text">
@@ -181,7 +249,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="py-3">
     <div class="container text-center">
       <p class="mb-0">&copy; 2025 HCS. All Rights Reserved.</p>
       <p class="mb-0">
