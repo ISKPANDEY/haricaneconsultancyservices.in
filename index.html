@@ -3,277 +3,665 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HCS | Home</title>
+  <title>Haricane Consultancy Services | Digital Innovation</title>
+  
+  <!-- Meta tags for SEO and sharing -->
+  <meta name="description" content="Transform your business with Haricane Consultancy Services - your trusted partner for website building, digital marketing, and innovative solutions." />
+  <meta name="keywords" content="digital marketing, web development, SEO, PPC, social media, content marketing, analytics" />
+  
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Google Fonts (Playfair Display for headings, Roboto for body) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  
   <style>
     :root {
-      --dark-bg: #1a1a1a;
-      --gold: #cba135;
-      --light-bg: #f9f9f9;
-      --primary-font: 'Playfair Display', serif;
-      --secondary-font: 'Roboto', sans-serif;
+      /* Logo-based Color Palette */
+      --hcs-turquoise: #4BDED3;
+      --hcs-red: #F8333C;
+      --hcs-dark: #121212;
+      --hcs-light: #F9F9F9;
+      --hcs-gray: #666666;
+      --hcs-accent: #FFD166;
+      
+      /* Typography */
+      --heading-font: 'Playfair Display', serif;
+      --body-font: 'Poppins', sans-serif;
     }
+    
+    /* Base Styles */
     body {
-      font-family: var(--secondary-font);
+      font-family: var(--body-font);
       color: #333;
       background-color: #fff;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    /* Navbar */
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--heading-font);
+    }
+    
+    /* Navigation */
     .navbar {
-      background: var(--dark-bg);
+      background-color: var(--hcs-dark);
+      padding: 1rem 0;
+      transition: all 0.4s ease;
     }
-    .navbar-brand,
-    .navbar-nav .nav-link {
-      color: #fff !important;
-      font-weight: 500;
+    
+    .navbar.scrolled {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 0.7rem 0;
     }
+    
     .navbar-brand {
-      font-family: var(--primary-font);
-      font-size: 1.5rem;
-      letter-spacing: 1px;
+      font-family: var(--heading-font);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff !important;
+      display: flex;
+      align-items: center;
     }
-    @media (max-width: 576px) {
-      .navbar-brand {
-        font-size: 1.2rem;
-      }
+    
+    .navbar-brand img {
+      transition: transform 0.3s ease;
     }
-    .navbar-nav .nav-link:hover {
-      color: var(--gold) !important;
+    
+    .navbar-brand:hover img {
+      transform: rotate(5deg);
     }
-    @media (max-width: 991px) {
-      .navbar-nav .nav-item {
-        padding: 0.25rem 0;
-      }
-    }
-    /* Hero Section */
-    header {
+    
+    .nav-link {
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin: 0 0.2rem;
+      padding: 0.5rem 1rem !important;
       position: relative;
-      min-height: 100vh;
-      padding: 4rem 0;
-      background: url('/images/hero.jpg') no-repeat center center/cover;
+      color: rgba(255,255,255,0.9) !important;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 5px;
+      left: 50%;
+      background-color: var(--hcs-turquoise);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .nav-link:hover {
+      color: #fff !important;
+    }
+    
+    .nav-link:hover::after, 
+    .nav-link.active::after {
+      width: 70%;
+    }
+    
+    .nav-link.active {
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+
+    .logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--hcs-turquoise);
+  letter-spacing: 2px;
+}
+
+.brand-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: var(--hcs-red);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      color: #000000;
+      overflow: hidden;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/images/hero.jpg') no-repeat center center/cover;
+      color: #fff;
     }
-    header::before {
-      content: "";
+    
+    .hero::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--hcs-dark);
+      opacity: 0.6;
       z-index: 1;
     }
-    header .container {
+    
+    .hero-content {
       position: relative;
       z-index: 2;
-    }
-    header h1 {
-      font-family: var(--primary-font);
-      font-size: 2rem;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    @media (min-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
-    }
-    @media (min-width: 992px) {
-      header h1 {
-        font-size: 3rem;
-      }
-    }
-    header p.lead {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-    }
-    @media (min-width: 768px) {
-      header p.lead {
-        font-size: 1.2rem;
-      }
-    }
-    header a.btn {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 0;
-      background-color: var(--gold);
-      border-color: var(--gold);
-      color: #fff;
-    }
-    header a.btn:hover {
-      background-color: #ad8a2c;
-      border-color: #ad8a2c;
-    }
-    /* Section Titles */
-    section h2 {
-      font-family: var(--primary-font);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--dark-bg);
       text-align: center;
+      padding: 2rem;
+      max-width: 900px;
     }
-    @media (min-width: 768px) {
-      section h2 {
-        font-size: 2.5rem;
-      }
+    
+    .hero-title {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--hcs-turquoise), var(--hcs-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
-    /* Section Padding */
-    section {
-      padding: 40px 0;
+    
+    .hero-subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 300;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    @media (min-width: 768px) {
-      section {
-        padding: 60px 0;
-      }
+    
+    .hero-btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--hcs-turquoise);
+      border-color: var(--hcs-turquoise);
+      color: var(--hcs-dark);
+      font-weight: 500;
+      z-index: 1;
+      transition: all 0.4s ease;
     }
-    /* About Preview Section */
-    #home-about {
+    
+    .hero-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--hcs-red);
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+    
+    .hero-btn:hover {
+      color: #fff;
+      border-color: var(--hcs-red);
+    }
+    
+    .hero-btn:hover::before {
+      width: 100%;
+    }
+    
+    /* Floating Shapes */
+    .floating-shape {
+      position: absolute;
+      opacity: 0.1;
+      z-index: 1;
+    }
+    
+    .shape-1 {
+      top: 15%;
+      left: 10%;
+      width: 80px;
+      height: 80px;
+      border: 5px solid var(--hcs-turquoise);
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    .shape-2 {
+      bottom: 20%;
+      right: 10%;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 8px solid var(--hcs-red);
+      animation: float 10s ease-in-out infinite;
+    }
+    
+    .shape-3 {
+      top: 50%;
+      right: 20%;
+      width: 60px;
+      height: 60px;
+      background-color: var(--hcs-accent);
+      transform: rotate(45deg);
+      animation: float 7s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+      100% { transform: translateY(0) rotate(0); }
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      margin-bottom: 4rem;
+      text-align: center;
+      color: var(--hcs-dark);
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--hcs-turquoise), var(--hcs-red));
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: var(--hcs-gray);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    
+    /* About Section */
+    #about {
       background-color: #fff;
     }
-    #home-about p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
+    
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--hcs-gray);
+      margin-bottom: 2rem;
+    }
+    
+    .about-img {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .about-img img {
+      transition: transform 0.5s ease;
+    }
+    
+    .about-img:hover img {
+      transform: scale(1.05);
+    }
+    
+    .about-img::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 60px;
+      height: 60px;
+      border-top: 4px solid var(--hcs-turquoise);
+      border-left: 4px solid var(--hcs-turquoise);
+      z-index: 1;
+    }
+    
+    .about-img::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 60px;
+      height: 60px;
+      border-bottom: 4px solid var(--hcs-red);
+      border-right: 4px solid var(--hcs-red);
+      z-index: 1;
+    }
+    
+    /* Services Section */
+    #services {
+      background-color: var(--hcs-light);
+      position: relative;
+    }
+    
+    .service-card {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       text-align: center;
+      transition: all 0.4s ease;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
     }
-    #home-about .btn {
-      color: var(--gold);
-      border-color: var(--gold);
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: var(--hcs-turquoise);
+      opacity: 0.1;
+      transition: all 0.4s ease;
+      z-index: -1;
     }
-    #home-about .btn:hover {
-      background-color: var(--gold);
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    
+    .service-card:hover::before {
+      height: 100%;
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--hcs-light);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      color: var(--hcs-red);
+      font-size: 1.8rem;
+      transition: all 0.4s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      background-color: var(--hcs-red);
       color: #fff;
     }
-    /* Services Preview Section */
-    #home-services {
-      background-color: var(--light-bg);
-      text-align: center;
+    
+    .service-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--hcs-dark);
     }
-    #home-services p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
+    
+    .service-description {
+      color: var(--hcs-gray);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
     }
-    #home-services .btn {
-      color: var(--dark-bg);
-      border-color: var(--dark-bg);
+    
+    .service-link {
+      display: inline-block;
+      color: var(--hcs-turquoise);
+      font-weight: 500;
+      text-decoration: none;
+      position: relative;
+      transition: all 0.3s ease;
     }
-    #home-services .btn:hover {
-      background-color: var(--dark-bg);
-      color: #fff;
+    
+    .service-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--hcs-turquoise);
+      transition: all 0.3s ease;
     }
+    
+    .service-link:hover {
+      color: var(--hcs-red);
+    }
+    
+    .service-link:hover::after {
+      width: 100%;
+      background-color: var(--hcs-red);
+    }
+    
     /* Contact Section */
     #contact {
-      background: var(--light-bg);
+      background-color: #fff;
+      position: relative;
     }
-    #contact .section-title {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    @media (min-width: 768px) {
-      #contact .section-title {
-        font-size: 2.5rem;
-      }
-    }
-    #contact .contact-info {
-      font-size: 1rem;
+    
+    .contact-info {
+      margin-bottom: 40px;
       text-align: center;
-      margin-bottom: 2rem;
     }
-    @media (min-width: 768px) {
-      #contact .contact-info {
-        font-size: 1.1rem;
-      }
+    
+    .contact-info p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--hcs-gray);
     }
-    #contact .contact-info a {
-      color: var(--gold);
+    
+    .contact-info a {
+      color: var(--hcs-turquoise);
       text-decoration: none;
+      transition: color 0.3s ease;
     }
-    #contact .contact-info a:hover {
-      text-decoration: underline;
+    
+    .contact-info a:hover {
+      color: var(--hcs-red);
     }
-    @media (max-width: 576px) {
-      #contact .contact-info p {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-    /* Social Media */
+    
     .social-media {
+      margin-bottom: 40px;
       text-align: center;
-      margin-bottom: 2rem;
     }
-    .social-media a {
-      display: inline-block;
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: var(--hcs-light);
+      border-radius: 50%;
       margin: 0 10px;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-    .social-media a:hover {
+    
+    .social-link img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background-color: var(--hcs-dark);
+      transform: translateY(-5px);
+    }
+    
+    .social-link:hover img {
       transform: scale(1.1);
     }
-    .social-media img {
-      height: 50px;
-      width: 50px;
-      object-fit: contain;
-    }
-    @media (max-width: 576px) {
-      .social-media img {
-        height: 40px;
-        width: 40px;
-      }
-      .social-media a {
-        margin: 0 8px;
-      }
-    }
-    /* Contact Form */
+    
     .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     }
-    .contact-form .form-control {
-      border-radius: 0;
-      border: 2px solid var(--gold);
+    
+    .form-control {
+      border-radius: 8px;
+      border: 2px solid #eee;
+      padding: 12px 20px;
+      font-size: 1rem;
+      color: var(--hcs-dark);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
     }
-    .contact-form .btn {
-      background-color: var(--gold);
+    
+    .form-control:focus {
+      border-color: var(--hcs-turquoise);
+      box-shadow: 0 0 0 0.25rem rgba(75, 222, 211, 0.25);
+    }
+    
+    .form-label {
+      font-weight: 500;
+      color: var(--hcs-dark);
+      margin-bottom: 10px;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(90deg, var(--hcs-turquoise), var(--hcs-red));
       border: none;
-      border-radius: 0;
-      font-size: 1.1rem;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      width: 100%;
     }
-    .contact-form .btn:hover {
-      background-color: #ad8a2c;
+    
+    .submit-btn:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
     }
-    @media (max-width: 576px) {
-      .form-control, .btn {
-        padding: 0.75rem;
-      }
-    }
+    
     /* Footer */
     footer {
-      background: var(--dark-bg);
-      color: #ccc;
-      padding: 20px 0;
+      background-color: var(--hcs-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 30px 0;
       text-align: center;
     }
-    footer a {
-      color: #ccc;
+    
+    footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
     }
+    
+    footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
     footer a:hover {
-      color: var(--gold);
+      color: var(--hcs-turquoise);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 991.98px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .section {
+        padding: 80px 0;
+      }
+    }
+    
+    @media (max-width: 767.98px) {
+      .navbar-collapse {
+        background-color: var(--hcs-dark);
+        padding: 20px;
+        margin-top: 10px;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .contact-form {
+        padding: 30px;
+      }
+    }
+    
+    /* Animation Utilities */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+    
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
+
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="/images/logo.jpg" alt="HCS Logo" width="40" class="me-2 img-fluid">
-        HCS
-        <small style="font-size: 0.65rem;" class="d-none d-sm-inline">Haricane Consultancy Services</small>
+        <img src="assets/images/logo.jpg" alt="HCS Logo" width="45" class="me-2" />
+        <div class="logo-text">
+          <span class="brand-name">HARICANE</span>
+          <span class="brand-tagline">CONSULTANCY SERVICES</span>
+        </div>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" 
               aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -296,85 +684,146 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="d-flex align-items-center justify-content-center text-center">
-    <div class="container">
-      <h1>WELCOME TO HARICANE CONSULTANCY SERVICES</h1>
-      <p class="lead">Your one-stop solution for website building and digital marketing.</p>
-      <a href="#contact" class="btn btn-lg mt-3">Get in Touch</a>
+  <header class="hero">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="hero-title">Transform Your Digital Presence</h1>
+      <p class="hero-subtitle">Your one-stop solution for innovative website building, strategic digital marketing, and comprehensive business growth solutions.</p>
+      <a href="#contact" class="btn hero-btn">Get Started</a>
     </div>
   </header>
 
-  <!-- About Preview Section -->
-  <section id="home-about" class="text-center">
+  <!-- About Section -->
+  <section id="about" class="section">
     <div class="container">
-      <h2>Who We Are</h2>
-      <p>
-        At HCS, we turn ideas into digital success. Our dedicated team crafts tailored strategies to elevate your brand and deliver tangible results.
-      </p>
-      <a href="about.html" class="btn btn-outline-primary">Learn More About Us</a>
+      <h2 class="section-title" data-aos="fade-up">Who We Are</h2>
+      
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+          <div class="about-img">
+            <img src="assets/images/About.jpg" alt="About HCS" class="img-fluid rounded">
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="300">
+          <div class="about-content">
+            <p>At Haricane Consultancy Services, we turn innovative ideas into digital success stories. Founded in 2020 with a vision to revolutionize the digital landscape, our dedicated team crafts tailored strategies designed to elevate your brand presence and deliver tangible results.</p>
+            <p>We pride ourselves on our client-focused approach, technical expertise, and creative solutions that address the unique challenges of your business. Our mission is to empower your growth in the digital world through cutting-edge technologies and proven methodologies.</p>
+            <a href="about.html" class="btn btn-outline-dark">Discover Our Story</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Services Preview Section -->
-  <section id="home-services" class="text-center">
+  <!-- Services Section -->
+  <section id="services" class="section">
     <div class="container">
-      <h2>Our Services</h2>
-      <p>
-        From SEO and PPC to social media and web design, we cover all your digital needs under one roof.
-      </p>
-      <a href="services.html" class="btn btn-outline-dark">View Services</a>
+      <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">We offer comprehensive digital solutions tailored to your specific business needs and objectives.</p>
+      
+      <div class="row">
+        <!-- SEO Service -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3 class="service-title">Search Engine Optimization</h3>
+            <p class="service-description">Boost your online visibility and drive organic traffic with our data-driven SEO strategies.</p>
+            <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- Social Media Marketing -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <h3 class="service-title">Social Media Marketing</h3>
+            <p class="service-description">Engage your audience and build brand loyalty with creative content and strategic campaigns.</p>
+            <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- Web Development -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="service-title">Web Design & Development</h3>
+            <p class="service-description">Create stunning, responsive websites that captivate users and drive conversions.</p>
+            <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
+        <a href="services.html" class="btn btn-outline-dark">View All Services</a>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-title text-center">Get in Touch with Us</h2>
-      <div class="contact-info">
+      <h2 class="section-title" data-aos="fade-up">Get in Touch</h2>
+      
+      <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
         <p>Email: <a href="mailto:haricaneconsultancy@gmail.com">haricaneconsultancy@gmail.com</a></p>
-        <p class="phone-numbers">
-          Phone (India): 
+        <p>Phone (India): 
           <a href="tel:+917050745124">7050745124</a> | 
-          <a href="tel:+9472643214">9472643214</a>
+          <a href="tel:+919234576240">9234576240</a>
         </p>
       </div>
+      
       <!-- Social Media Links -->
-      <div class="social-media mb-4">
-        <a href="https://www.instagram.com/haricane_consultancy" target="_blank" title="Instagram">
-          <img src="/images/insta.jpeg" alt="Instagram Logo" class="img-fluid" />
+      <div class="social-media" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://www.instagram.com/haricane_consultancy" target="_blank" class="social-link" title="Instagram">
+          <img src="assets/images/insta.jpeg" alt="Instagram" />
         </a>
-        <a href="https://www.facebook.com/share/1661GbQ5gY/" target="_blank" title="Facebook">
-          <img src="/images/facebook.avif" alt="Facebook Logo" class="img-fluid" />
+        <a href="https://www.facebook.com/haricane_consultancy" target="_blank" class="social-link" title="Facebook">
+          <img src="assets/images/facebook.avif" alt="Facebook" />
         </a>
-        <a href="https://x.com/haricaneconsult?t=P3dG_ODzMfooJtPHBWCjIw&s=09" target="_blank" title="x">
-          <img src="/images/x.avif" alt="Twitter Logo" class="img-fluid" />
+        <a href="https://x.com/haricane_consultancy" target="_blank" class="social-link" title="X">
+          <img src="assets/images/x.avif" alt="X" />
         </a>
-        <a href="https://www.linkedin.com/in/haricane-consultancy-services-b103a9354?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn">
-          <img src="/images/linkedin.avif" alt="LinkedIn Logo" class="img-fluid" />
+        <a href="https://www.linkedin.com/company/haricane_consultancy" target="_blank" class="social-link" title="LinkedIn">
+          <img src="assets/images/linkedin.avif" alt="LinkedIn" />
         </a>
       </div>
       
       <!-- Contact Form -->
-      <div class="contact-form">
-        <form action="https://formspree.io/f/myzkrjoe" method="POST">
-          <div class="mb-3">
-            <label for="contactName" class="form-label">Your Name</label>
-            <input type="text" class="form-control" id="contactName" name="name" placeholder="Enter your name" required />
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="mb-3">
+                <label for="contactName" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="contactName" placeholder="Enter your name" required />
+              </div>
+              <div class="mb-3">
+                <label for="contactEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email" required />
+              </div>
+              <div class="mb-3">
+                <label for="contactMessage" class="form-label">Your Message</label>
+                <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can we help you?" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
           </div>
-          <div class="mb-3">
-            <label for="contactEmail" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="contactEmail" name="email" placeholder="Enter your email" required />
+          
+          <!-- Confirmation Message (hidden initially) -->
+          <div class="alert alert-success mt-4 text-center" id="confirmationMessage" style="display: none;">
+            Thank you! Your message has been sent. We will contact you as soon as possible.
           </div>
-          <div class="mb-3">
-            <label for="contactMessage" class="form-label">Your Message</label>
-            <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="How can we help you?" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-lg w-100">Send Message</button>
-        </form>
-      </div>
-      <!-- Confirmation Message (hidden initially) -->
-      <div class="alert alert-success mt-4 text-center" id="confirmationMessage" style="display: none;">
-        Thank you! Your message has been sent. We will contact you as soon as possible.
+        </div>
       </div>
     </div>
   </section>
@@ -382,15 +831,111 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p class="mb-0">&copy; 2025 HCS. All Rights Reserved.</p>
-      <p class="mb-0">
-        <a href="privacy.html" class="text-decoration-none me-2">Privacy Policy</a> |
-        <a href="terms.html" class="text-decoration-none ms-2">Terms of Service</a>
+      <p class="mb-2">&copy; 2025 Haricane Consultancy Services. All Rights Reserved.</p>
+      <p>
+        <a href="privacy.html" class="me-3">Privacy Policy</a>
+        <a href="terms.html" class="ms-3">Terms of Service</a>
       </p>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script>
+    // Initialize AOS animation library
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navbarHeight = document.querySelector('.navbar').offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Update active state in navbar
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+          });
+          this.classList.add('active');
+        }
+      });
+    });
+    
+    // Contact form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simulate sending the form data
+      
+      // Hide form and show confirmation message
+      this.style.display = 'none';
+      document.getElementById('confirmationMessage').style.display = 'block';
+      
+      // In a real implementation, you would use fetch or XMLHttpRequest to send the data to your server
+      // Example:
+      /*
+      fetch('your-server-endpoint', {
+        method: 'POST',
+        body: new FormData(this),
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.style.display = 'none';
+        document.getElementById('confirmationMessage').style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle error
+      });
+      */
+    });
+    
+    // Reveal animations on scroll
+    function revealOnScroll() {
+      const elements = document.querySelectorAll('.fade-up');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
