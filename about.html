@@ -3,267 +3,816 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HCS | About Us</title>
+  <title>HCS | Our Story</title>
+  
+  <!-- Meta tags for SEO -->
+  <meta name="description" content="Discover the journey, mission and exceptional team behind Haricane Consultancy Services - your trusted digital transformation partner since 2020." />
+  
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  
   <style>
     :root {
-      --dark-bg: #1a1a1a;
-      --gold: #cba135;
-      --royal-blue: #002147;
-      --warm-bg: #fff8e1;
-      --light-bg: #f9f9f9;
-      --primary-font: 'Playfair Display', serif;
-      --secondary-font: 'Roboto', sans-serif;
+      /* Logo-based Color Palette */
+      --hcs-turquoise: #4BDED3;
+      --hcs-red: #F8333C;
+      --hcs-dark: #121212;
+      --hcs-light: #F9F9F9;
+      --hcs-gray: #666666;
+      --hcs-accent: #FFD166;
+      
+      /* Typography */
+      --heading-font: 'Playfair Display', serif;
+      --body-font: 'Poppins', sans-serif;
     }
+    
+    /* Base Styles */
     body {
-      font-family: var(--secondary-font);
+      font-family: var(--body-font);
       color: #333;
       background-color: #fff;
-      margin: 0;
-      padding: 0;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    /* Navbar */
-    .navbar {
-      background: var(--dark-bg);
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--heading-font);
     }
-    .navbar-brand,
-    .navbar-nav .nav-link {
+    
+    /* Navigation */
+    .navbar {
+      background-color: var(--hcs-dark);
+      padding: 1rem 0;
+      transition: all 0.4s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 0.7rem 0;
+    }
+    
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    
+    .brand-name {
+      font-family: var(--heading-font);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--hcs-turquoise);
+      letter-spacing: 2px;
+    }
+    
+    .brand-tagline {
+      font-family: var(--body-font);
+      font-size: 0.55rem;
+      font-weight: 500;
+      color: var(--hcs-red);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin: 0 0.2rem;
+      padding: 0.5rem 1rem !important;
+      position: relative;
+      color: rgba(255,255,255,0.9) !important;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 5px;
+      left: 50%;
+      background-color: var(--hcs-turquoise);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .nav-link:hover {
       color: #fff !important;
     }
-    .navbar-brand {
-      font-family: var(--primary-font);
-      font-size: 1.5rem;
-      letter-spacing: 1px;
+    
+    .nav-link:hover::after, 
+    .nav-link.active::after {
+      width: 70%;
     }
-    @media (max-width: 576px) {
-      .navbar-brand {
-        font-size: 1.2rem;
-      }
+    
+    .nav-link.active {
+      color: #fff !important;
+      font-weight: 600;
     }
-    .navbar-nav .nav-link:hover {
-      color: var(--gold) !important;
-    }
-    @media (max-width: 991px) {
-      .navbar-nav .nav-item {
-        padding: 0.25rem 0;
-      }
-    }
+    
     /* Page Header */
     .page-header {
-      background: var(--royal-blue);
+      position: relative;
+      background: linear-gradient(135deg, var(--hcs-dark), #000);
       color: #fff;
       text-align: center;
-      padding: 30px 0;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+    
+    .page-header .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/images/digital-pattern.jpg');
+      opacity: 0.1;
+    }
+    
+    .header-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 30px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+
+    .page-header {
+  background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+  position: relative;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/images/digital-pattern.jpg');
+  opacity: 0.08;
+  z-index: 1;
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 2;
+}
+    
+
+
+    .page-title {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, var(--hcs-turquoise), var(--hcs-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    
+    .page-subtitle {
+      font-size: 1.3rem;
+      font-weight: 300;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Section styles */
+    .section {
+      padding: 100px 0;
       position: relative;
     }
-    @media (min-width: 768px) {
-      .page-header {
-        padding: 40px 0;
-      }
+    
+    .section-light {
+      background-color: #fff;
     }
-    .page-header img {
-      height: 60px;
-      margin-bottom: 15px;
+    
+    .section-dark {
+      background-color: var(--hcs-light);
     }
-    @media (min-width: 768px) {
-      .page-header img {
-        height: 80px;
-        margin-bottom: 20px;
-      }
-    }
-    .page-header h1 {
-      font-family: var(--primary-font);
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-    @media (min-width: 576px) {
-      .page-header h1 {
-        font-size: 2.2rem;
-      }
-    }
-    @media (min-width: 768px) {
-      .page-header h1 {
-        font-size: 2.75rem;
-      }
-    }
-    .page-header p {
-      font-size: 1rem;
-      margin-bottom: 0;
-    }
-    @media (min-width: 768px) {
-      .page-header p {
-        font-size: 1.1rem;
-      }
-    }
-    /* Section Titles */
+    
     .section-title {
-      font-family: var(--primary-font);
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--royal-blue);
+      position: relative;
+      font-size: 2.5rem;
+      color: var(--hcs-dark);
+      margin-bottom: 60px;
       text-align: center;
     }
-    @media (min-width: 768px) {
-      .section-title {
-        font-size: 2.5rem;
-      }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--hcs-turquoise), var(--hcs-red));
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
     }
-    /* Section Padding */
-    section {
-      padding: 40px 0;
-    }
-    @media (min-width: 768px) {
-      section {
-        padding: 60px 0;
-      }
-    }
-    /* Company Overview & Timeline */
-    .overview {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    @media (min-width: 768px) {
-      .overview {
-        font-size: 1.1rem;
-        line-height: 1.8;
-      }
-    }
-    .timeline {
-      margin: 20px 0;
-    }
-    @media (min-width: 768px) {
-      .timeline {
-        margin: 30px 0;
-      }
-    }
-    .timeline li {
-      margin-bottom: 10px;
-    }
-    @media (min-width: 768px) {
-      .timeline li {
-        margin-bottom: 15px;
-      }
-    }
-    .timeline li span {
-      font-weight: 700;
-      color: var(--gold);
-    }
-    /* Leadership */
-    .leadership img {
-      max-width: 120px;
-    }
-    @media (min-width: 768px) {
-      .leadership img {
-        max-width: 150px;
-      }
-    }
-    .leadership h3 {
-      font-family: var(--primary-font);
-      color: var(--royal-blue);
-      margin-top: 10px;
-      font-size: 1.2rem;
-    }
-    @media (min-width: 768px) {
-      .leadership h3 {
-        font-size: 1.5rem;
-      }
-    }
-    .leadership p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-    @media (min-width: 768px) {
-      .leadership p {
-        font-size: 1rem;
-      }
-    }
-    /* Key Projects Section */
-    .project-card {
-      border: 1px solid #ddd;
+    
+    /* Journey Section */
+    .journey-img {
       border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      background: #fff;
-      height: 100%;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      position: relative;
     }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    }
-    .project-card img {
-      height: 160px;
+    
+    .journey-img img {
+      transition: transform 0.5s ease;
       width: 100%;
-      object-fit: cover;
     }
-    @media (min-width: 768px) {
-      .project-card img {
-        height: 180px;
-      }
+    
+    .journey-img:hover img {
+      transform: scale(1.05);
     }
-    .project-card .card-body {
-      padding: 1rem;
+    
+    .journey-content {
+      padding: 20px;
     }
-    .project-card .card-title {
-      font-family: var(--primary-font);
-      color: var(--royal-blue);
+    
+    .journey-text {
       font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      line-height: 1.8;
+      color: var(--hcs-gray);
+      margin-bottom: 30px;
     }
-    @media (min-width: 768px) {
-      .project-card .card-title {
-        font-size: 1.25rem;
-      }
+    
+    .journey-text strong {
+      color: var(--hcs-red);
     }
-    .project-card .card-text {
-      font-size: 0.9rem;
-      color: #555;
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      margin: 40px 0;
+      padding-left: 30px;
     }
-    @media (min-width: 768px) {
-      .project-card .card-text {
-        font-size: 0.95rem;
-      }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
+      width: 3px;
+      background: linear-gradient(var(--hcs-turquoise), var(--hcs-red));
     }
-    /* Regions & Clients */
-    .regions p {
-      font-size: 1rem;
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding-left: 20px;
     }
-    @media (min-width: 768px) {
-      .regions p {
-        font-size: 1.1rem;
-      }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: -10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--hcs-turquoise);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px rgba(75, 222, 211, 0.3);
     }
-    .regions strong {
-      color: var(--gold);
+    
+    .timeline-item:nth-child(even)::before {
+      background-color: var(--hcs-red);
+      box-shadow: 0 0 0 3px rgba(248, 51, 60, 0.3);
     }
-    /* Footer */
-    footer {
-      background: var(--dark-bg);
-      color: #ccc;
-      padding: 20px 0;
+    
+    .timeline-year {
+      font-weight: 700;
+      color: var(--hcs-red);
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .timeline-text {
+      display: inline;
+      color: var(--hcs-dark);
+    }
+    
+    /* Leadership Section */
+    .team-section {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .team-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/images/pattern.png');
+      opacity: 0.03;
+      z-index: 0;
+    }
+    
+    .team-card {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: all 0.4s ease;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .team-img-container {
+      position: relative;
+      overflow: hidden;
+      height: 250px;
+    }
+    
+    .team-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .team-card:hover .team-img {
+      transform: scale(1.1);
+    }
+    
+    .team-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .team-card:hover .team-overlay {
+      opacity: 1;
+    }
+    
+    .team-info {
+      padding: 25px 20px;
       text-align: center;
     }
-    footer a {
-      color: #ccc;
+    
+    .team-name {
+      color: var(--hcs-dark);
+      font-size: 1.5rem;
+      margin-bottom: 5px;
     }
+    
+    .team-position {
+      color: var(--hcs-red);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    .team-description {
+      color: var(--hcs-gray);
+      font-size: 0.9rem;
+      display: none;
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+    
+    .team-img-container {
+  height: 280px; /
+    }
+
+    .team-img-container {
+  padding-top: 125%; /* Creates a fixed aspect ratio */
+  height: 0;
+}
+
+.team-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+    .team-card:hover .team-description {
+      display: block;
+    }
+    
+    .team-social {
+      margin-top: 15px;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      width: 35px;
+      height: 35px;
+      margin: 0 5px;
+      border-radius: 50%;
+      color: #fff;
+      background-color: var(--hcs-dark);
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--hcs-turquoise);
+      transform: translateY(-3px);
+    }
+    
+    /* Projects Section */
+    .client-heading {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--hcs-dark);
+      position: relative;
+    }
+    
+    .client-heading::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--hcs-turquoise), var(--hcs-red));
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .client-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: all 0.4s ease;
+      height: 100%;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .client-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    
+    .client-img-container {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .client-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .client-card:hover .client-img {
+      transform: scale(1.1);
+    }
+    
+    .client-content {
+      padding: 25px;
+    }
+    
+    .client-title {
+      font-size: 1.3rem;
+      color: var(--hcs-dark);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .client-description {
+      font-size: 0.95rem;
+      color: var(--hcs-gray);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .client-button {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(90deg, var(--hcs-turquoise), var(--hcs-red));
+      color: #fff;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .client-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      color: #fff;
+    }
+    
+    /* Regions Section */
+    .regions-section {
+      background: linear-gradient(135deg, var(--hcs-dark), #000);
+      color: #fff;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .regions-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/images/pattern.png');
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .regions-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    
+    .regions-title {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+    
+    .regions-description {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    
+    .regions-map {
+      margin-top: 40px;
+      position: relative;
+    }
+    
+    .regions-map img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .region-highlight {
+      color: var(--hcs-turquoise);
+      font-weight: 600;
+    }
+    
+    .regions-description strong {
+      color: var(--hcs-red);
+    }
+    
+    /* Values Section */
+    .values-section {
+      padding: 100px 0;
+      background-color: #fff;
+    }
+    
+    .value-card {
+      text-align: center;
+      padding: 40px 20px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      background-color: var(--hcs-light);
+      transition: all 0.4s ease;
+      height: 100%;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--hcs-turquoise);
+      transition: all 0.4s ease;
+    }
+    
+    .value-card:hover .value-icon {
+      color: var(--hcs-red);
+      transform: scale(1.1);
+    }
+    
+    .value-title {
+      font-size: 1.3rem;
+      color: var(--hcs-dark);
+      margin-bottom: 15px;
+    }
+    
+    .value-description {
+      font-size: 0.95rem;
+      color: var(--hcs-gray);
+      line-height: 1.7;
+    }
+    
+    /* Testimonials */
+    .testimonial-section {
+      background-color: var(--hcs-light);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonial-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/images/pattern.png');
+      opacity: 0.05;
+    }
+    
+    .testimonial-card {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      font-family: var(--heading-font);
+      color: rgba(0,0,0,0.05);
+      line-height: 1;
+    }
+    
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--hcs-gray);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+    
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .testimonial-info {
+      flex: 1;
+    }
+    
+    .testimonial-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--hcs-dark);
+      margin-bottom: 0;
+    }
+    
+    .testimonial-position {
+      font-size: 0.9rem;
+      color: var(--hcs-red);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--hcs-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
     footer a:hover {
-      color: var(--gold);
+      color: var(--hcs-turquoise);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 991.98px) {
+      .page-title {
+        font-size: 2.5rem;
+      }
+      
+      .section {
+        padding: 80px 0;
+      }
+      
+      .team-img-container {
+        height: 220px;
+      }
+    }
+    
+    @media (max-width: 767.98px) {
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .journey-content {
+        padding: 0;
+      }
+      
+      .team-img-container {
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="/images/logo.jpg" alt="HCS Logo" width="40" class="me-2 img-fluid" />
-        HCS
-        <small style="font-size: 0.65rem;" class="d-none d-sm-inline">Haricane Consultancy Services</small>
+        <img src="assets/images/logo.jpg" alt="HCS Logo" width="45" class="me-2" />
+        <div class="logo-text">
+          <span class="brand-name">HARICANE</span>
+          <span class="brand-tagline">CONSULTANCY SERVICES</span>
+        </div>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" 
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
@@ -285,115 +834,342 @@
   <!-- Page Header -->
   <header class="page-header">
     <div class="container">
-      <img src="/images/logo.jpg" alt="HCS Logo" class="img-fluid" />
-      <h1>About Haricane Consultancy Services</h1>
-      <p>Innovative Solutions. Trusted Expertise.</p>
+      <img src="assets/images/logo.jpg" alt="HCS Logo" class="header-logo" />
+      <h1 class="page-title" data-aos="fade-up">Our Journey & Vision</h1>
+      <p class="page-subtitle" data-aos="fade-up" data-aos-delay="200">Creating digital excellence through innovation, expertise, and client-centered solutions since 2020.</p>
     </div>
   </header>
 
-  <!-- Company Overview & Timeline Section -->
-  <section id="about">
+  <!-- Our Journey Section -->
+  <section id="journey" class="section section-light">
     <div class="container">
-      <h2 class="section-title">Our Journey</h2>
-      <div class="row">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <img src="/images/About.jpg" alt="About HCS" class="img-fluid rounded mb-4" />
+      <h2 class="section-title" data-aos="fade-up">The HCS Story</h2>
+      
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+          <div class="journey-img">
+            <img src="assets/images/About.jpg" alt="About HCS" class="img-fluid rounded">
+          </div>
         </div>
-        <div class="col-md-6">
-          <p class="overview">
-            Haricane Consultancy Services (HCS) was founded in <strong>2020</strong> with a vision to revolutionize digital marketing and web development. Our mission is to provide innovative, customized solutions that drive results for our diverse clientele.
-          </p>
-          <ul class="timeline list-unstyled">
-            <li><span>2020:</span> HCS is founded, setting the benchmark for digital innovation.</li>
-            <li><span>2021:</span> Expanded our services across India and began serving international markets.</li>
-            <li><span>2022:</span> Secured major clients and launched flagship projects.</li>
-            <li><span>2023:</span> Enhanced our technological capabilities and service portfolio.</li>
-          </ul>
+        
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+          <div class="journey-content">
+            <p class="journey-text">
+              Haricane Consultancy Services (HCS) was established in <strong>2020</strong> with a clear vision: to revolutionize digital marketing and web development through innovative, client-focused solutions that drive measurable results.
+            </p>
+            <p class="journey-text">
+              Starting as a small team of digital enthusiasts, we quickly expanded our expertise and client base by maintaining our commitment to excellence, transparency, and cutting-edge technologies. Today, we stand as a trusted digital partner for businesses across South Asia.
+            </p>
+            
+            <ul class="timeline">
+              <li class="timeline-item">
+                <span class="timeline-year">2020:</span>
+                <span class="timeline-text">HCS founded with a mission to set new benchmarks in digital innovation.</span>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-year">2021:</span>
+                <span class="timeline-text">Expanded our reach across India and began serving international markets.</span>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-year">2022:</span>
+                <span class="timeline-text">Secured major clients and successfully launched flagship projects.</span>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-year">2023:</span>
+                <span class="timeline-text">Enhanced our technological capabilities and expanded our service portfolio.</span>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-year">2024:</span>
+                <span class="timeline-text">Continued growth with innovative solutions and strategic partnerships.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values Section -->
+  <section id="values" class="values-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Core Values</h2>
+      
+      <div class="row">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 class="value-title">Innovation</h3>
+            <p class="value-description">
+              We constantly explore new ideas and technologies to deliver cutting-edge solutions that keep our clients ahead of the digital curve.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="value-title">Integrity</h3>
+            <p class="value-description">
+              We believe in transparent relationships, honest communication, and ethical practices in everything we do.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="value-title">Excellence</h3>
+            <p class="value-description">
+              We strive for exceptional quality in our work, continuously refining our skills and processes to exceed expectations.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Leadership Section -->
-  <section id="leadership" class="bg-light">
+  <section id="leadership" class="section team-section section-dark">
+    <div class="team-pattern"></div>
     <div class="container">
-      <h2 class="section-title">Our Leadership</h2>
-      <div class="row text-center leadership">
-        <!-- Pioneering Growth Architect -->
-        <div class="col-md-4 mb-4">
-          <img src="/images/om.jpeg" alt="Board of Director" class="img-fluid rounded-circle" />
-          <h3>Om Prakesh Bhardwaj</h3>
-          <p class="fw-bold">Pioneering Growth Architect & CEO </p>
-        </div>
+      <h2 class="section-title" data-aos="fade-up">Meet Our Leadership</h2>
+      
+      <div class="row">
+        
         <!-- CEO -->
-        <div class="col-md-4 mb-4">
-          <img src="/images/raghaw.jpeg" alt="CMO H S Raghaw" class="img-fluid rounded-circle" />
-          <h3>H S Raghaw</h3>
-          <p class="fw-bold">Chief Marketing Officer & Global Head</p>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="assets/images/om.jpeg" alt="Om Prakash Bhardwaj" class="team-img">
+              <div class="team-overlay"></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Om Prakash Bhardwaj</h3>
+              <p class="team-position">Chief Executive Officer</p>
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              </div>
+              <p class="team-description">Leads our executive team with a passion for innovation and a commitment to delivering exceptional client solutions.</p>
+            </div>
+          </div>
         </div>
-        <!-- CTO & Enterprise Architect -->
-        <div class="col-md-4 mb-4">
-          <img src="/images/skp.jpg.jpeg" alt="CTO S K Pandey" class="img-fluid rounded-circle" />
-          <h3>S K Pandey</h3>
-          <p class="fw-bold">Chief Technology Officer & Enterprise Architect </p>
+
+
+
+        <!-- CBO -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="assets/images/raghaw.png" alt="H S Raghaw" class="team-img">
+              <div class="team-overlay"></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">H S Raghaw</h3>
+              <p class="team-position">Chief Business Officer & Partnerships Lead</p>
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              </div>
+              <p class="team-description">Provides strategic direction and leadership to drive the company's vision and growth initiatives.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- CTO -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="assets/images/skp.jpg.jpeg" alt="S K Pandey" class="team-img">
+              <div class="team-overlay"></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">S K Pandey</h3>
+              <p class="team-position">Chief Technology Officer</p>
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+              </div>
+              <p class="team-description">Oversees our technical strategy and innovations, ensuring we deliver cutting-edge solutions with the latest technologies.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- chief Marketing Officer (NEW) -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="assets/images/Darshan.jpeg" alt="Darshan Raj" class="team-img">
+              <div class="team-overlay"></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Darshan Raj</h3>
+              <p class="team-position">Chief Marketing Officer</p>
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              </div>
+              <p class="team-description">Leads our social media, SEO, and advertising strategies, driving visibility and engagement for our clients across digital platforms.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Key Projects Section -->
-  <section id="projects">
+  <section id="projects" class="section section-light">
     <div class="container">
-      <h2 class="section-title">Key Projects & Clients</h2>
-      <p class="text-center mb-4">
-        Over the years, we have partnered with a diverse range of clients across various sectors:
-      </p>
+      <h2 class="section-title" data-aos="fade-up">Our Key Projects & Clients</h2>
+      
       <div class="row g-4">
-        <!-- Haricane Lifestyle (Clothing Brand) -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card project-card h-100">
-            <img src="/images/haricanelogo.jpeg" alt="Haricane Lifestyle" class="img-fluid" />
-            <div class="card-body">
-              <h5 class="card-title">Haricane Lifestyle</h5>
-              <p class="card-text">
-                A premium clothing brand redefining modern style with quality and innovation.
+        <!-- Haricane Lifestyle -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="client-card">
+            <div class="client-img-container">
+              <img src="assets/images/haricanelogo.jpeg" alt="Haricane Lifestyle" class="client-img">
+            </div>
+            <div class="client-content">
+              <h3 class="client-title">Haricane Lifestyle</h3>
+              <p class="client-description">
+                A premium clothing brand redefining modern style with quality fabrics and innovative designs for the fashion-forward generation.
               </p>
+              <a href="#" class="client-button">View Project</a>
             </div>
           </div>
         </div>
-        <!-- Adaero Tech Pvt. Ltd -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card project-card h-100">
-            <img src="/images/aderotech.png" alt="Adaero Tech Pvt. Ltd" class="img-fluid" />
-            <div class="card-body">
-              <h5 class="card-title">Adaero Tech Pvt. Ltd</h5>
-              <p class="card-text">
-                A technology powerhouse providing cutting-edge technical setups and solutions.
+        
+        <!-- Adaero Tech -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="client-card">
+            <div class="client-img-container">
+              <img src="assets/images/aderotech.png" alt="Adaero Tech Pvt. Ltd" class="client-img">
+            </div>
+            <div class="client-content">
+              <h3 class="client-title">Adaero Tech Pvt. Ltd</h3>
+              <p class="client-description">
+                A technology powerhouse providing cutting-edge technical solutions and innovative digital platforms for businesses of all sizes.
               </p>
+              <a href="#" class="client-button">View Project</a>
             </div>
           </div>
         </div>
-        <!-- BRAIN (Bharat Research In AI Nextgen) -->
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card project-card h-100">
-            <img src="/images/brain.jpg" alt="BRAIN" class="img-fluid" />
-            <div class="card-body">
-              <h5 class="card-title">BRAIN</h5>
-              <p class="card-text">
-                Pioneering AI research and next-generation solutions across multiple industries.
+        
+        <!-- BRAIN -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="client-card">
+            <div class="client-img-container">
+              <img src="assets/images/brain.jpg" alt="BRAIN" class="client-img">
+            </div>
+            <div class="client-content">
+              <h3 class="client-title">BRAIN</h3>
+              <p class="client-description">
+                Pioneering AI research organization focused on developing next-generation solutions that transform industries through intelligent automation.
               </p>
+              <a href="#" class="client-button">View Project</a>
             </div>
           </div>
         </div>
-        <!-- Le Satrang Cafes (Additional) -->
-        <div class="col-md-6 col-lg-4 mb-4 mx-auto">
-          <div class="card project-card h-100">
-            <img src="/images/satrang.jpg" alt="Le Satrang Cafes" class="img-fluid" />
-            <div class="card-body">
-              <h5 class="card-title">Restaurants & Cafes</h5>
-              <p class="card-text">
-                Serving a multitude of culinary brands with fusion of worlds and hospitality ventures with digital expertise.
+        
+        <!-- Le Satrang Cafes -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="client-card">
+            <div class="client-img-container">
+              <img src="assets/images/satrang.jpg" alt="Le Satrang Cafes" class="client-img">
+            </div>
+            <div class="client-content">
+              <h3 class="client-title">Le Satrang Cafes</h3>
+              <p class="client-description">
+                A vibrant chain of cafes offering fusion cuisine and a unique dining experience with stunning ambiance and exceptional service.
               </p>
+              <a href="#" class="client-button">View Project</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- PRANSHU Education (NEW) -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="client-card">
+            <div class="client-img-container">
+              <img src="assets/images/Pranshu.png" alt="PRANSHU Education Pvt Ltd" class="client-img">
+            </div>
+            <div class="client-content">
+              <h3 class="client-title">PRANSHU Education Pvt Ltd</h3>
+              <p class="client-description">
+                A leading education platform operating multiple coaching centers across Kolkata, delivering quality education and mentorship to thousands of students.
+              </p>
+              <a href="#" class="client-button">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonial-section">
+    <div class="testimonial-pattern"></div>
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">What Our Clients Say</h2>
+      
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Working with HCS transformed our digital presence completely. Their strategic approach to SEO and social media marketing helped us increase our online visibility by 200% within just six months."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="assets/images/logo.jpg" alt="Client Avatar">
+              </div>
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Sanjeet Pandey</h4>
+                <p class="testimonial-position">CEO, Adaero Tech</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "The website HCS designed for our educational institute has been instrumental in increasing our student enrollments. Their understanding of our needs and creative execution exceeded our expectations."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="assets/images/logo.jpg" alt="Client Avatar">
+              </div>
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Digvijay Shukla</h4>
+                <p class="testimonial-position">Director, PRANSHU Education</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "HCS has been a reliable partner in our digital journey. Their data-driven marketing approach and creative content strategy have helped us establish a strong brand identity in a competitive market."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="assets/images/logo.jpg" alt="Client Avatar">
+              </div>
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Ragini Kumari</h4>
+                <p class="testimonial-position">Founder, Le Satrang Cafes</p>
+              </div>
             </div>
           </div>
         </div>
@@ -402,27 +1178,59 @@
   </section>
 
   <!-- Regions Section -->
-  <section id="regions" class="bg-light">
+  <section id="regions" class="regions-section">
+    <div class="regions-pattern"></div>
     <div class="container">
-      <h2 class="section-title">Our Reach</h2>
-      <p class="text-center regions">
-        We proudly operate in <strong>India, Nepal, Bangladesh, Sri Lanka, and Myanmar</strong>, delivering innovative digital solutions to clients across South Asia.
-      </p>
+      <div class="regions-content">
+        <h2 class="regions-title" data-aos="fade-up">Our Global Reach</h2>
+        <p class="regions-description" data-aos="fade-up" data-aos-delay="200">
+          We proudly operate across <span class="region-highlight">India, Nepal, Bangladesh, Sri Lanka, and Myanmar</span>, delivering innovative digital solutions tailored to the unique markets of South Asia. Our multicultural team understands the diverse business landscapes and consumer behaviors across these regions.
+        </p>
+        <div class="regions-map" data-aos="fade-up" data-aos-delay="300">
+          <img src="assets/images/About.jpg" alt="HCS Regional Map" class="img-fluid">
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-3">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 HCS. All Rights Reserved.</p>
-      <p class="mb-0">
-        <a href="privacy.html" class="text-decoration-none me-2">Privacy Policy</a> |
-        <a href="terms.html" class="text-decoration-none ms-2">Terms of Service</a>
+  <footer>
+    <div class="container">
+      <p class="mb-2">&copy; 2025 Haricane Consultancy Services. All Rights Reserved.</p>
+      <p>
+        <a href="privacy.html" class="me-3">Privacy Policy</a>
+        <a href="terms.html" class="ms-3">Terms of Service</a>
       </p>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script>
+    // Initialize AOS animation library
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>
