@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Insights & Resources | Haricane Consultancy Services</title>
+    <meta name="description" content="Explore our collection of expert insights, industry trends, and actionable strategies on digital marketing, SEO, AI innovations, and business growth." />
+    <meta name="keywords" content="digital marketing insights, SEO tips, AI in marketing, social media strategies, web development, content marketing, HCS blog" />
+    <meta name="author" content="Haricane Consultancy Services">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- AOS (Animate on Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Blog-specific CSS -->
+    <style>
+        /* Blog Hero Section */
+        .blog-hero {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--background-color) 100%);
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .blog-hero-title span {
+            color: var(--primary-color);
+        }
+        
+        .blog-hero-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 6px;
+            background-color: var(--secondary-color-1);
+            bottom: -15px;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .blog-hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        /* Category Filters */
+        .blog-categories {
+            margin: 50px 0 30px;
+            position: relative;
+        }
+        
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .category-filter {
+            background-color: #fff;
+            color: var(--gray);
+            border: 1px solid rgba(0,0,0,0.1);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-filter:hover, .category-filter.active {
+            background-color: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.2);
+        }
+        
+        /* Featured Post */
+        .featured-post {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .featured-post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        .featured-post-image {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .featured-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .featured-post:hover .featured-post-image img {
+            transform: scale(1.05);
+        }
+        
+        .featured-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--secondary-color-1);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .featured-post-content {
+            padding: 40px;
+        }
+        
+        .featured-post-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .featured-post-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .featured-post-meta img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .featured-post-meta .date {
+            margin-left: 20px;
+        }
+        
+        .featured-post-excerpt {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        /* Blog Grid */
+        .blog-grid {
+            padding-bottom: 50px;
+        }
+        
+        .blog-card {
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            margin-bottom: 30px;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        .blog-image {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-date {
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            transition: color 0.3s ease;
+        }
+        
+        .blog-card:hover .blog-content h3 {
+            color: var(--primary-color);
+        }
+        
+        .blog-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .blog-link {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            padding-bottom: 3px;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+        
+        .blog-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .blog-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-link:hover {
+            color: var(--secondary-color-1);
+        }
+        
+        .blog-link:hover::after {
+            width: 100%;
+            background-color: var(--secondary-color-1);
+        }
+        
+        .blog-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Topic Sections */
+        .topic-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .topic-card {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--secondary-color-1);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        .topic-card:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .topic-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+        }
+        
+        .topic-icon i {
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .topic-card:hover .topic-icon {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        .topic-card:hover .topic-icon i {
+            color: #fff;
+        }
+        
+        .topic-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .topic-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .topic-link {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            padding-bottom: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .topic-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .topic-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .topic-link:hover {
+            color: var(--secondary-color-1);
+        }
+        
+        .topic-link:hover::after {
+            width: 100%;
+            background-color: var(--secondary-color-1);
+        }
+        
+        .topic-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Author Spotlight */
+        .author-spotlight {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .author-spotlight-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .author-spotlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        .author-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 4px solid var(--light-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .author-spotlight-card:hover .author-image {
+            border-color: var(--primary-color);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-spotlight-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .author-position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .author-bio {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .author-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .author-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .author-social a:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        
+        /* Newsletter Section */
+        .blog-newsletter {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color-1) 100%);
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+        
+        .blog-newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDEyNWMxMy44IDAgMjUtMTEuMiAyNS0yNXMtMTEuMi0yNS0yNS0yNS0yNSAxMS4yLTI1IDI1IDExLjIgMjUgMjUgMjV6IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4xIi8+PC9zdmc+');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .newsletter-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form .input-group {
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .newsletter-form .form-control {
+            border: none;
+            padding: 15px 25px;
+            height: 60px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--secondary-color-2);
+            color: var(--dark-color);
+            font-weight: 700;
+            border: none;
+            padding: 0 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #fff;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Pagination */
+        .blog-pagination {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        
+        .page-link {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: var(--gray);
+            border: 1px solid rgba(0,0,0,0.1);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .page-link:hover, .page-link.active {
+            background-color: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.2);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            .blog-hero {
+                padding: 120px 0 60px;
+            }
+            
+            .featured-post-image {
+                height: 300px;
+            }
+            
+            .featured-post-content {
+                padding: 30px;
+            }
+            
+            .featured-post-title {
+                font-size: 1.8rem;
+            }
+            
+            .blog-categories {
+                margin: 40px 0 20px;
+            }
+            
+            .topic-section, .author-spotlight, .blog-newsletter {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .blog-hero-title {
+                text-align: center;
+            }
+            
+            .blog-hero-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .blog-hero-subtitle {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .featured-post-image {
+                height: 250px;
+            }
+            
+            .featured-post-content {
+                padding: 25px;
+            }
+            
+            .featured-post-title {
+                font-size: 1.5rem;
+            }
+            
+            .featured-tag {
+                font-size: 0.8rem;
+                padding: 6px 15px;
+            }
+            
+            .blog-image {
+                height: 200px;
+            }
+            
+            .newsletter-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .category-filter {
+                font-size: 0.8rem;
+                padding: 6px 15px;
+            }
+            
+            .featured-post-content {
+                padding: 20px;
+            }
+            
+            .featured-post-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .featured-post-meta .date {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            
+            .newsletter-form .form-control {
+                padding: 12px 20px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.svg" alt="HCS Logo" class="logo-img" />
+                <div class="logo-text">
+                    <span class="brand-name">HARICANE</span>
+                    <span class="brand-tagline">CONSULTANCY SERVICES</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="case-studies.html">case-studies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link consultation-link" href="consultation.html">Free Consultation</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="floating-elements" aria-hidden="true">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+            <div class="floating-shape shape-5"></div>
+            <div class="floating-shape shape-6"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="blog-hero-title">Insights & <span>Knowledge Hub</span></h1>
+                    <p class="blog-hero-subtitle">Discover actionable strategies, industry trends, and expert perspectives to accelerate your digital growth journey.</p>
+                    <form class="d-flex blog-search">
+                        <input class="form-control" type="search" placeholder="Search articles..." aria-label="Search">
+                        <button class="btn btn-primary ms-2" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-categories">
+        <div class="container">
+            <div class="category-filters" data-aos="fade-up">
+                <button class="category-filter active">All</button>
+                <button class="category-filter">SEO</button>
+                <button class="category-filter">Digital Marketing</button>
+                <button class="category-filter">AI & Technology</button>
+                <button class="category-filter">Social Media</button>
+                <button class="category-filter">Web Development</button>
+                <button class="category-filter">Content Strategy</button>
+                <button class="category-filter">Business Growth</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-post-section">
+        <div class="container">
+            <div class="featured-post" data-aos="fade-up">
+                <div class="row g-0">
+                    <div class="col-lg-6">
+                        <div class="featured-post-image">
+                            <div class="featured-tag">Featured</div>
+                            <img src="images/blog/ai-marketing-header.png" alt="AI in Digital Marketing">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="featured-post-content">
+                            <h2 class="featured-post-title">How AI is Transforming Digital Marketing in 2025</h2>
+                            <div class="featured-post-meta">
+                                <img src="images/team/om.jpeg" alt="Om Prakash Bhardwaj">
+                                <span>Om Prakash Bhardwaj, CEO</span>
+                                <span class="date"><i class="far fa-calendar-alt me-2"></i>March 28, 2025</span>
+                            </div>
+                            <p class="featured-post-excerpt">Artificial intelligence has moved from an experimental technology to the backbone of digital marketing strategies in 2025. From hyper-personalization to predictive analytics, AI is redefining what's possible in marketing automation, customer engagement, and ROI optimization.</p>
+                            <a href="blog/ai-digital-marketing.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="blog-grid">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Latest <span>Articles</span></h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Explore our most recent insights and strategies</p>
+            
+            <div class="row g-4 mt-4">
+                <!-- Article 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog/seo-strategies-header.jpg" alt="10 SEO Strategies That Actually Work in 2025">
+                            <div class="blog-category">SEO</div>
+                        </div>
+                        <div class="blog-content">
+                            <p class="blog-date">April 15, 2025</p>
+                            <h3>10 SEO Strategies That Actually Work in 2025</h3>
+                            <p>Discover the latest SEO techniques that are driving real results in today's competitive digital landscape, from E-E-A-T principles to advanced technical optimization.</p>
+                            <a href="blog/seo-strategies-2023.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog/social-media-trends-heade.png" alt="Social Media Trends to Watch in 2025">
+                            <div class="blog-category">Social Media</div>
+                        </div>
+                        <div class="blog-content">
+                            <p class="blog-date">February 10, 2025</p>
+                            <h3>Social Media Trends to Watch in 2025</h3>
+                            <p>Stay ahead of the curve with our analysis of emerging social media trends that are reshaping how brands connect with audiences and drive meaningful engagement.</p>
+                            <a href="blog/social-media-trends-2023.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog/content-marketing.jpg" alt="7 Content Marketing Strategies That Drive Conversions">
+                            <div class="blog-category">Content Strategy</div>
+                        </div>
+                        <div class="blog-content">
+                            <p class="blog-date">March 5, 2025</p>
+                            <h3>7 Content Marketing Strategies That Drive Conversions</h3>
+                            <p>Learn how to create content that not only engages your audience but also drives measurable business results and conversions.</p>
+                            <a href="blog/content-marketing-conversions.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 4 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog/web-development.jpg" alt="Essential Web Development Trends for 2025">
+                            <div class="blog-category">Web Development</div>
+                        </div>
+                        <div class="blog-content">
+                            <p class="blog-date">January 22, 2025</p>
+                            <h3>Essential Web Development Trends for 2025</h3>
+                            <p>Explore the latest web development technologies and trends that are shaping user experiences and digital interactions.</p>
+                            <a href="blog/web-development-trends.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 5 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog/local-seo.jpg" alt="Local SEO: Winning Strategies for Small Businesses">
+                            <div class="blog-category">SEO</div>
+                        </div>
+                        <div class="blog-content">
+                            <p class="blog-date">February 28, 2025</p>
+                            <h3>Local SEO: Winning Strategies for Small Businesses</h3>
+                            <p>Discover proven local SEO tactics that help small businesses increase visibility, attract more customers, and grow their local presence.</p>
+                            <a href="blog/local-seo-small-business.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 6 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog/ecommerce.jpg" alt="E-commerce Optimization: From Browsing to Buying">
+                            <div class="blog-category">Digital Marketing</div>
+                        </div>
+                        <div class="blog-content">
+                            <p class="blog-date">April 2, 2025</p>
+                            <h3>E-commerce Optimization: From Browsing to Buying</h3>
+                            <p>Learn comprehensive strategies to optimize your e-commerce website for higher conversion rates and better customer experiences.</p>
+                            <a href="blog/ecommerce-optimization.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="blog-pagination" data-aos="fade-up">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link"><i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topic Categories -->
+    <section class="topic-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Explore <span>Topics</span></h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Dive deeper into our specialized knowledge areas</p>
+            
+            <div class="row g-4 mt-4">
+                <!-- Topic 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="topic-card">
+                        <div class="topic-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Search Engine Optimization</h3>
+                        <p>Discover strategies to improve your search visibility, drive organic traffic, and outrank competitors with our comprehensive SEO resources.</p>
+                        <a href="services.html#seo" class="topic-link">Explore SEO Topics <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Topic 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="topic-card">
+                        <div class="topic-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI & Marketing Technology</h3>
+                        <p>Learn how artificial intelligence and emerging technologies are transforming marketing strategies, automation, and customer experiences.</p>
+                        <a href="services.html#ai" class="topic-link">Explore AI Topics <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Topic 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="topic-card">
+                        <div class="topic-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Social Media Marketing</h3>
+                        <p>Stay on top of platform updates, engagement strategies, and content approaches that drive social media success in 2025 and beyond.</p>
+                        <a href="services.html#social" class="topic-link">Explore Social Media Topics <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Authors -->
+    <section class="author-spotlight">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Meet Our <span>Experts</span></h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">The minds behind our industry-leading insights</p>
+            
+            <div class="row g-4 mt-4">
+                <!-- Author 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="author-spotlight-card">
+                        <div class="author-image">
+                            <img src="images/team/om.jpeg" alt="Om Prakash Bhardwaj">
+                        </div>
+                        <h3>Om Prakash Bhardwaj</h3>
+                        <p class="author-position">Chief Executive Officer</p>
+                        <p class="author-bio">Backend systems architect and technology visionary with expertise in Java, Spring Boot, and system design. Om leads our AI integration and technical strategy content.</p>
+                        <div class="author-social">
+                            <a href="https://www.linkedin.com/in/om-prakash-534a671ba/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Author 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="author-spotlight-card">
+                        <div class="author-image">
+                            <img src="images/team/satyam.jpeg" alt="S K Pandey">
+                        </div>
+                        <h3>S K Pandey</h3>
+                        <p class="author-position">Chief Technology Officer</p>
+                        <p class="author-bio">AI prompt engineer and full-stack innovator with expertise in web technologies. Satyam specializes in SEO content and technical optimization strategies.</p>
+                        <div class="author-social">
+                            <a href="https://github.com/ISKPANDEY" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Author 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="author-spotlight-card">
+                        <div class="author-image">
+                            <img src="images/team/Darshan.jpeg" alt="Darshan Raj">
+                        </div>
+                        <h3>Darshan Raj</h3>
+                        <p class="author-position">Chief Marketing Officer</p>
+                        <p class="author-bio">Paid media and influencer marketing specialist with expertise in social media and content strategy. Darshan shares insights on engagement and platform-specific tactics.</p>
+                        <div class="author-social">
+                            <a href="https://www.linkedin.com/in/paritosh-kumar-29562a172?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="blog-newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="newsletter-title">Stay Ahead of the Curve</h2>
+                    <p class="newsletter-subtitle">Subscribe to our newsletter and receive the latest digital marketing insights, industry trends, and exclusive content directly to your inbox.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" required>
+                            <button class="newsletter-btn" type="submit">Subscribe <i class="fas fa-paper-plane ms-2"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get in <span>Touch</span></h2>
+
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+                <p><i class="fas fa-envelope me-2"></i>Email: <a href="mailto:haricaneconsultancy@gmail.com">haricaneconsultancy@gmail.com</a></p>
+                <p><i class="fas fa-phone me-2"></i>Phone (India):
+                    <a href="tel:+917050745124">70507 45124</a> |
+                    <a href="tel:+919234576240">92345 76240</a>
+                </p>
+            </div>
+
+            <div class="social-media" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://www.instagram.com/haricane_consultancy/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram" aria-label="Visit our Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/people/Haricane-Consultancy-Services/61569315425001/?sk=about" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook" aria-label="Visit our Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/haricaneconsult" target="_blank" rel="noopener noreferrer" class="social-link" title="X (Twitter)" aria-label="Visit our X profile">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://in.linkedin.com/in/haricane-consultancy-services-b103a9354" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" aria-label="Visit our LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm">
+                            <div class="mb-4">
+                                <label for="contactName" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="contactName" name="name" placeholder="Enter your name" required aria-required="true" />
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="contactEmail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="contactEmail" name="email" placeholder="Enter your email" required aria-required="true" />
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="contactSubject" class="form-label">Subject (Optional)</label>
+                                <input type="text" class="form-control" id="contactSubject" name="subject" placeholder="e.g., Blog Inquiry" />
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="contactMessage" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="How can we help you?" required aria-required="true"></textarea>
+                            </div>
+
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                <input type="text" name="b_honeypot_field" tabindex="-1" value="">
+                            </div>
+
+                            <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="alert confirmation-message mt-4" id="formStatusMessage" role="alert"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="enhanced-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4 align-items-start">
+                    <!-- Company Info & Logo Column -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-company-info">
+                            <a href="index.html" class="footer-logo-link">
+                                <img src="images/logo.svg" alt="Haricane Consultancy Services Logo" class="footer-logo">
+                                <div class="footer-logo-text">
+                                    <span class="footer-brand-name">HARICANE</span>
+                                    <span class="footer-brand-tagline">CONSULTANCY SERVICES</span>
+                                </div>
+                            </a>
+                            <p class="footer-about-text">Transforming businesses through innovative digital marketing strategies, website development, and comprehensive growth solutions since 2020.</p>
+                            <div class="footer-social-links">
+                                <a href="https://www.instagram.com/haricane_consultancy/" aria-label="Follow us on Instagram" class="footer-social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/people/Haricane-Consultancy-Services/61569315425001/?sk=about" aria-label="Follow us on Facebook" class="footer-social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://x.com/haricaneconsult" aria-label="Follow us on Twitter" class="footer-social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://in.linkedin.com/in/haricane-consultancy-services-b103a9354" aria-label="Connect with us on LinkedIn" class="footer-social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="col-lg-2 col-md-6 col-6">
+                        <div class="footer-links-column">
+                            <h3 class="footer-column-title">Quick Links</h3>
+                            <ul class="footer-links-list">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="case-studies.html">Case Studies</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Services Column -->
+                    <div class="col-lg-2 col-md-6 col-6">
+                        <div class="footer-links-column">
+                            <h3 class="footer-column-title">Services</h3>
+                            <ul class="footer-links-list">
+                                <li><a href="services.html#seo">SEO</a></li>
+                                <li><a href="services.html#social">Social Media</a></li>
+                                <li><a href="services.html#webdev">Web Development</a></li>
+                                <li><a href="services.html#ppc">PPC Advertising</a></li>
+                                <li><a href="services.html#content">Content Marketing</a></li>
+                                <li><a href="services.html#analytics">Analytics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info Column -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-links-column">
+                            <h3 class="footer-column-title">Contact Info</h3>
+                            <ul class="footer-contact-list">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <span>Haricane Tower,</span>
+                                        <span>Kolkata, India</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:haricaneconsultancy@gmail.com">haricaneconsultancy@gmail.com</a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>
+                                        <a href="tel:+917050745124">+91 70507 45124</a>
+                                        <a href="tel:+919234576240">+91 92345 76240</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                                        <span>Saturday: 10:00 AM - 2:00 PM</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar / Copyright -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright-text">
+                            &copy; <span id="copyright-year"></span> Haricane Consultancy Services. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-legal-links">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                            <a href="sitemap.html">Sitemap</a>
+                            <a href="cookies.html">Cookie Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Shape Decorations -->
+        <div class="footer-shapes" aria-hidden="true">
+            <div class="footer-shape shape-1"></div>
+            <div class="footer-shape shape-2"></div>
+            <div class="footer-shape shape-3"></div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        // Additional Blog Page Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category Filter Functionality
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Remove active class from all filters
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    
+                    // Add active class to clicked filter
+                    this.classList.add('active');
+                    
+                    // Here you would normally filter the blog posts
+                    // This is just a placeholder for actual filtering functionality
+                    console.log('Filter clicked:', this.textContent);
+                });
+            });
+            
+            // Blog Search Functionality
+            const blogSearch = document.querySelector('.blog-search');
+            
+            if (blogSearch) {
+                blogSearch.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const searchTerm = this.querySelector('input').value;
+                    console.log('Search term:', searchTerm);
+                    
+                    // Here you would normally implement search functionality
+                    // For now, just show an alert
+                    if (searchTerm.trim() !== '') {
+                        alert(`Searching for: ${searchTerm}`);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
